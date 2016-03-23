@@ -1,11 +1,11 @@
 class Solution {
 public:
     int minSubArrayLen(int s, vector<int>& nums) {
-        int n = nums.size();
-        if(!n) return 0;
+        if(nums.empty()) return 0;
         
-        int curSum = nums[0], res = n, i=0, j=0;
-        while(i <= j && j < nums.size()) { //[i,j]
+        int n = nums.size();
+        int curSum = nums[0], res = INT_MAX, i=0, j=0;
+        while(j < n) { //[i,j]
             if(curSum < s) {
                 curSum += nums[++j];
             } else {
